@@ -1,4 +1,5 @@
 import time
+import random
 
 def intro():
     print("Welcome to the Mysterious Forest!")
@@ -13,10 +14,13 @@ def left_path():
     print("You can try to swim across (S), find another way around (A), or build a raft (R).")
     choice = input("What will you do? (S/A/R): ").lower()
     if choice == "s":
-        print("\nYou attempt to swim across the river.")
-        time.sleep(2)
-        print("But the current is too strong, and you're swept away.")
-        print("Game Over.")
+        if random.random() < 0.3:
+            print("\nYou attempt to swim across the river.")
+            time.sleep(2)
+            print("But the current is too strong, and you're swept away.")
+            print("Game Over.")
+        else:
+            print("\nYou successfully swim across the river and continue your journey.")
     elif choice == "a":
         print("\nYou decide to find another way around the river.")
         print("After a long walk, you find a bridge and cross it safely.")
@@ -25,10 +29,14 @@ def left_path():
         print("\nYou've successfully crossed the river and continue your adventure.")
     elif choice == "r":
         print("\nYou decide to build a raft to cross the river.")
-        print("After gathering materials and constructing the raft, you successfully navigate across the river.")
-        print("You continue your journey deeper into the forest.")
-        time.sleep(2)
-        print("\nYou've successfully crossed the river using a raft.")
+        if random.random() < 0.5:
+            print("After gathering materials and constructing the raft, you successfully navigate across the river.")
+            print("You continue your journey deeper into the forest.")
+            time.sleep(2)
+            print("\nYou've successfully crossed the river using a raft.")
+        else:
+            print("Your raft falls apart midstream, and you're swept away by the river.")
+            print("Game Over.")
 
 def straight_path():
     print("\nYou chose the Straight path.")
@@ -37,8 +45,13 @@ def straight_path():
     choice = input("What will you do? (E/C/M): ").lower()
     if choice == "e":
         print("\nYou enter the cave.")
-        print("Inside, you find treasure and become rich!")
-        print("Congratulations, you've won the game!")
+        if random.random() < 0.2:
+            print("Inside, you encounter a ferocious bear!")
+            print("You barely escape with your life.")
+            print("Game Over.")
+        else:
+            print("Inside, you find treasure and become rich!")
+            print("Congratulations, you've won the game!")
     elif choice == "c":
         print("\nYou decide to continue along the path.")
         print("After some time, you encounter a friendly squirrel who guides you deeper into the forest.")
@@ -47,10 +60,15 @@ def straight_path():
         print("\nYou've made a new friend and continue your adventure.")
     elif choice == "m":
         print("\nYou choose to climb the mountain.")
-        print("As you climb higher, you encounter a breathtaking view of the entire forest.")
-        print("You feel invigorated by the fresh air and stunning scenery.")
-        time.sleep(2)
-        print("\nYou've reached the summit of the mountain and enjoy the view.")
+        if random.random() < 0.3:
+            print("As you climb higher, you slip and fall, injuring yourself.")
+            print("You manage to crawl back down but must abandon your adventure.")
+            print("Game Over.")
+        else:
+            print("As you climb higher, you encounter a breathtaking view of the entire forest.")
+            print("You feel invigorated by the fresh air and stunning scenery.")
+            time.sleep(2)
+            print("\nYou've reached the summit of the mountain and enjoy the view.")
 
 def right_path():
     print("\nYou chose the Right path.")
@@ -67,13 +85,17 @@ def right_path():
         print("\nYou choose to go right.")
         print("You walk for what feels like hours until you find a hidden clearing.")
         print("In the clearing, you see a mystical fountain.")
-        print("You feel compelled to drink from it.")
-        time.sleep(2)
-        print("\nYou've drunk from the mystical fountain and feel rejuvenated.")
+        if random.random() < 0.4:
+            print("You feel compelled to drink from it.")
+            print("Drinking from the fountain curses you, and you're trapped in the forest forever.")
+            print("Game Over.")
+        else:
+            print("You feel compelled to drink from it.")
+            time.sleep(2)
+            print("\nYou've drunk from the mystical fountain and feel rejuvenated.")
     elif choice == "s":
         print("\nYou decide to follow the path straight ahead.")
         print("The path leads you to a beautiful meadow filled with wildflowers.")
-        print("You take a moment to relax and enjoy the peaceful surroundings.")
         time.sleep(2)
         print("\nYou've found a tranquil meadow and take a break.")
 
@@ -92,3 +114,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
